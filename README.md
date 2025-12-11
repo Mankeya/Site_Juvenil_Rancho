@@ -25,4 +25,5 @@ Criar um espaço digital simples, bonito e funcional para divulgar a invernada j
 
 ## 👤 Desenvolvido por:
 Larah Matos
+
 Gabriel Manke
