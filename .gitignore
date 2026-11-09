@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.vite/
+*.log
+.DS_Store
+
+# Skills do OpenCode (dados locais, não fazem parte do site)
+opencode-skills/

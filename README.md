@@ -1,29 +1,49 @@
 # 💃 Site Rancho Juvenil — CTG Rancho da Saudade
 
-Este site foi desenvolvido para representar a invernada juvenil do CTG *Rancho da Saudade*, reunindo informações, identidade visual, fotos e o espírito tradicionalista do grupo.
+Site oficial da invernada juvenil do CTG *Rancho da Saudade*, reunindo informações,
+identidade visual, fotos e o espírito tradicionalista do grupo.
 
 ## 🎯 Objetivo
-Criar um espaço digital simples, bonito e funcional para divulgar a invernada juvenil do Rancho, fortalecer a presença online do grupo e valorizar a cultura gaúcha.
+
+Criar um espaço digital simples, bonito e funcional para divulgar a invernada juvenil do
+Rancho, fortalecer a presença online do grupo e valorizar a cultura gaúcha.
 
 ## 🧩 Conteúdo do site
-- Página inicial com destaque para o grupo  
-- Seções sobre o CTG e a invernada juvenil  
-- Galeria de fotos  
-- Identidade visual do grupo  
-- Layout responsivo
 
-## 🔧 Tecnologias utilizadas
-- *HTML* — estrutura das páginas  
-- *Tailwindo CSS* — estilização e visual tradicional  
-- *JavaScript* — pequenas interações  
-- *Responsividade* — adaptado para celular e computador
+- Página inicial com destaque para o grupo e cena 3D animada
+- Seções sobre a história e as conquistas do CTG
+- Galeria de fotos com interação 3D
+- Formulário de inscrição
+- Layout responsivo (celular e desktop)
 
-## 🌐 Acesse o site online:
-[🔗 https://larahamatos.github.io/siteRanchoJuv/](https://larahamatos.github.io/siteRanchoJuv/)
+## 🔧 Tecnologias
 
----
+- **HTML** — estrutura das páginas
+- **Tailwind CSS v4** — estilização (build local, sem CDN)
+- **Vite** — dev server e build de produção
+- **Three.js** — cena 3D do hero (carregada sob demanda)
+- **AOS** — animações de scroll
+- **JavaScript** — interações (menu, formulário, tilt 3D)
 
-## 👤 Desenvolvido por:
-Larah Matos
+## 🛠️ Desenvolvimento
 
-Gabriel Manke
+```bash
+npm install       # instalar dependências
+npm run dev       # servidor local com hot reload
+npm run build     # build de produção (gera dist/)
+npm run preview   # visualizar o build
+npm run lint      # Prettier + html-validate
+```
+
+## 🚀 Deploy
+
+O deploy é automático via **GitHub Pages** a cada merge na branch `main`
+(ver `.github/workflows/deploy.yml`). A CI (`.github/workflows/ci.yml`) roda formatação,
+validação HTML e build em cada pull request.
+
+Contribua lendo [CONTRIBUTING.md](CONTRIBUTING.md) — usamos Conventional Commits e
+Pull Requests.
+
+## 👤 Desenvolvido por
+
+Larah Matos · Gabriel Manke

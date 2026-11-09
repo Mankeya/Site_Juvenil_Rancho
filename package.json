@@ -1,0 +1,26 @@
+{
+  "name": "site-juvenil-rancho",
+  "version": "2.0.0",
+  "description": "Site da Invernada Juvenil do CTG Rancho da Saudade",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "validate": "html-validate index.html inscricao.html",
+    "lint": "npm run format:check && npm run validate"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mankeya/Site_Juvenil_Rancho.git"
+  },
+  "author": "Larah Matos, Gabriel Manke",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Mankeya/Site_Juvenil_Rancho/issues"
+  },
+  "homepage": "https://github.com/Mankeya/Site_Juvenil_Rancho#readme"
+}
