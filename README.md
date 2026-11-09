@@ -1,6 +1,6 @@
 # 💃 Site Rancho Juvenil — CTG Rancho da Saudade
 
-Site oficial da invernada juvenil do CTG *Rancho da Saudade*, reunindo informações,
+Site oficial da invernada juvenil do CTG _Rancho da Saudade_, reunindo informações,
 identidade visual, fotos e o espírito tradicionalista do grupo.
 
 ## 🎯 Objetivo

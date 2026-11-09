@@ -20,13 +20,13 @@ Obrigado por querer contribuir! Este documento define o fluxo de trabalho do rep
    <tipo>(<escopo>): <descrição curta>
    ```
 
-   | Tipo      | Quando usar                        |
-   | --------- | ---------------------------------- |
-   | `feat:`   | nova funcionalidade ou seção       |
-   | `fix:`    | correção de bug                     |
-   | `style:`  | aparência, cores, animações         |
-   | `docs:`   | README, comentários                 |
-   | `chore:`  | build, dependências, CI             |
+   | Tipo                                               | Quando usar                  |
+   | -------------------------------------------------- | ---------------------------- |
+   | `feat:`                                            | nova funcionalidade ou seção |
+   | `fix:`                                             | correção de bug              |
+   | `style:`                                           | aparência, cores, animações  |
+   | `docs:`                                            | README, comentários          |
+   | `chore:`                                           | build, dependências, CI      |
    | `refactor:` reestruturação sem mudar comportamento |
 
    Exemplos:

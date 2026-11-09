@@ -22,5 +22,16 @@
   "bugs": {
     "url": "https://github.com/Mankeya/Site_Juvenil_Rancho/issues"
   },
-  "homepage": "https://github.com/Mankeya/Site_Juvenil_Rancho#readme"
+  "homepage": "https://github.com/Mankeya/Site_Juvenil_Rancho#readme",
+  "dependencies": {
+    "aos": "^2.3.4",
+    "three": "^0.187.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.5",
+    "html-validate": "^11.21.0",
+    "prettier": "^3.9.10",
+    "tailwindcss": "^4.3.5",
+    "vite": "^8.3.7"
+  }
 }
