@@ -1,681 +1,340 @@
 <!doctype html>
-<html lang="pt-BR" class="scroll-smooth">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Site oficial da Invernada Juvenil do CTG Rancho da Saudade — tradição, dança e cultura gaúcha em Cachoeirinha, RS."
+      content="Conheça a Invernada Juvenil do CTG Rancho da Saudade, em Cachoeirinha, RS."
     />
-    <meta name="theme-color" content="#d62828" />
-
-    <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="CTG Rancho da Saudade — Invernada Juvenil" />
-    <meta
-      property="og:description"
-      content="Paixão pela tradição: conheça a invernada juvenil do CTG Rancho da Saudade."
-    />
-    <meta property="og:image" content="Img/foto3.jpg" />
-    <meta property="og:locale" content="pt_BR" />
-
+    <meta name="theme-color" content="#20392e" />
     <link rel="icon" href="Img/icon.ico" />
-    <title>CTG Rancho da Saudade — Invernada Juvenil</title>
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Italiana&display=swap"
       rel="stylesheet"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-
+    <title>Invernada Juvenil — CTG Rancho da Saudade</title>
     <script type="module" src="/src/main.js"></script>
   </head>
-
-  <body class="bg-white text-rancho-ink antialiased overflow-x-hidden">
-    <!-- ══════════ Header ══════════ -->
-    <header
-      id="navbar"
-      class="fixed w-full top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-black/5 transition-shadow"
-    >
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center h-20">
-          <a href="#inicio" class="flex items-center gap-3">
-            <img
-              src="Img/icon.ico"
-              alt="Logo do CTG Rancho da Saudade"
-              class="h-11 w-auto hover:rotate-6 transition-transform duration-300"
-            />
-            <span class="hidden sm:block leading-tight">
-              <span class="block font-display font-bold text-lg text-rancho-ink">
-                CTG Rancho da Saudade
-              </span>
-              <span class="block text-xs font-semibold uppercase tracking-widest text-rancho-green">
-                Invernada Juvenil
-              </span>
-            </span>
-          </a>
-
-          <nav class="hidden md:flex items-center gap-8" aria-label="Navegação principal">
-            <a
-              href="#inicio"
-              class="font-medium text-black/70 hover:text-rancho-red transition-colors"
-            >
-              Início
-            </a>
-            <a
-              href="#historia"
-              class="font-medium text-black/70 hover:text-rancho-red transition-colors"
-            >
-              História
-            </a>
-            <a
-              href="#galeria"
-              class="font-medium text-black/70 hover:text-rancho-red transition-colors"
-            >
-              Galeria
-            </a>
-            <a href="#inscricao" class="btn-primary text-sm">
-              <i class="fas fa-pen-to-square"></i>
-              Inscreva-se
-            </a>
-          </nav>
-
-          <button
-            id="mobile-menu-btn"
+  <body class="juvenil">
+    <header class="site-header">
+      <a class="brand" href="#inicio"
+        ><img src="Img/icon.ico" alt="" /><span
+          ><small>INVERNADA JUVENIL</small>Rancho da Saudade</span
+        ></a
+      >
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+        aria-controls="navigation"
+      >
+        ☰
+      </button>
+      <nav id="navigation" aria-label="Navegação principal">
+        <a href="#essencia">Nossa essência</a><a href="#vivencias">Vivências</a
+        ><a href="#historia">História</a><a href="#galeria">Galeria</a><a href="#agenda">Agenda</a
+        ><a class="nav-cta" href="#inscricao">Faça parte <span>↗</span></a>
+      </nav>
+    </header>
+    <main>
+      <section class="hero" id="inicio">
+        <video
+          class="hero-video"
+          muted
+          loop
+          playsinline
+          preload="none"
+          poster="Img/foto3.jpg"
+          aria-hidden="true"
+          data-src="assets/video/Juvenil%20-%20Trim.mp4"
+        ></video>
+        <div class="hero-content">
+          <p class="eyebrow">Cachoeirinha, RS · Desde 1981</p>
+          <h1>Nossa história.<br />Sempre em<br /><em>movimento.</em></h1>
+          <p>
+            Tradição, amizade e a alegria de dançar juntos. A invernada juvenil leva essa história
+            no peito.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#inscricao">Faça parte <span>↗</span></a
+            ><a class="hero-link" href="#historia">Conheça nossa história <span>↗</span></a>
+          </div>
+        </div>
+        <canvas
+          id="hero-canvas"
+          aria-label="Logotipo do CTG Rancho da Saudade em 3D"
+          role="img"
+        ></canvas>
+        <div class="hero-bottom">
+          <a href="#essencia">Sinta. Explore. Faça parte. <span>↓</span></a
+          ><button
+            id="motion"
             type="button"
-            class="md:hidden w-11 h-11 grid place-items-center rounded-full bg-rancho-red text-white shadow-red"
-            aria-label="Abrir menu"
-            aria-expanded="false"
-            aria-controls="mobile-menu"
+            aria-label="Reproduzir vídeo"
+            aria-pressed="false"
+            hidden
           >
-            <i class="fas fa-bars text-lg"></i>
+            ▶
           </button>
         </div>
+      </section>
+      <div class="ticker" aria-hidden="true">
+        <span>TRADIÇÃO</span><b>✳</b><span>PERTENCIMENTO</span><b>✳</b><span>ARTE</span><b>✳</b
+        ><span>AMIZADE</span><b>✳</b><span>QUERÊNCIA</span><b>✳</b><span>RANCHO DA SAUDADE</span>
       </div>
-
-      <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-black/5">
-        <nav class="px-4 py-4 space-y-1" aria-label="Navegação mobile">
-          <a
-            href="#inicio"
-            class="block px-4 py-3 rounded-xl font-medium text-black/70 hover:bg-rancho-cream"
-          >
-            Início
-          </a>
-          <a
-            href="#historia"
-            class="block px-4 py-3 rounded-xl font-medium text-black/70 hover:bg-rancho-cream"
-          >
-            História
-          </a>
-          <a
-            href="#galeria"
-            class="block px-4 py-3 rounded-xl font-medium text-black/70 hover:bg-rancho-cream"
-          >
-            Galeria
-          </a>
-          <a href="#inscricao" class="block btn-primary justify-center mt-2">
-            <i class="fas fa-pen-to-square"></i>
-            Inscreva-se
-          </a>
-        </nav>
-      </div>
-    </header>
-
-    <main>
-      <!-- ══════════ Hero ══════════ -->
-      <section id="inicio" class="relative pt-28 pb-16 lg:pt-36 lg:pb-24 overflow-hidden">
-        <div
-          class="absolute -top-32 -right-32 w-[480px] h-[480px] rounded-full bg-rancho-red/5 blur-3xl"
-          aria-hidden="true"
-        ></div>
-        <div
-          class="absolute bottom-0 -left-40 w-[420px] h-[420px] rounded-full bg-rancho-green/5 blur-3xl"
-          aria-hidden="true"
-        ></div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <!-- Faixa de fotos com low-fade e degradê -->
-          <div class="relative mb-10 md:mb-14 h-36 sm:h-44 md:h-52" aria-hidden="true">
-            <div
-              class="grid grid-cols-3 md:grid-cols-5 gap-2 sm:gap-3 h-full"
-              style="
-                mask-image: linear-gradient(to bottom, black 40%, transparent);
-                -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent);
-              "
-            >
-              <img
-                src="Img/foto3.jpg"
-                alt=""
-                class="w-full h-full object-cover rounded-lg sm:rounded-xl opacity-45"
-              />
-              <img
-                src="Img/foto1.jpg"
-                alt=""
-                class="w-full h-full object-cover rounded-lg sm:rounded-xl opacity-45"
-              />
-              <img
-                src="Img/3 titulo.jpeg"
-                alt=""
-                class="w-full h-full object-cover rounded-lg sm:rounded-xl opacity-45"
-              />
-              <img
-                src="Img/foto7.jpg"
-                alt=""
-                class="hidden md:block w-full h-full object-cover rounded-xl opacity-45"
-              />
-              <img
-                src="Img/foto4.jpg"
-                alt=""
-                class="hidden md:block w-full h-full object-cover rounded-xl opacity-45"
-              />
-            </div>
-            <!-- Degradês que derretem as bordas no branco -->
-            <div
-              class="absolute inset-y-0 left-0 w-16 sm:w-24 bg-gradient-to-r from-white to-transparent"
-            ></div>
-            <div
-              class="absolute inset-y-0 right-0 w-16 sm:w-24 bg-gradient-to-l from-white to-transparent"
-            ></div>
-            <div
-              class="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-white via-white/70 to-transparent"
-            ></div>
-          </div>
-
-          <div class="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <p
-                class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-rancho-green bg-rancho-green/10 px-4 py-2 rounded-full mb-6"
-              >
-                <i class="fas fa-star"></i>
-                Desde 1981 em Cachoeirinha
-              </p>
-
-              <h1
-                class="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl leading-[1.05] text-balance"
-              >
-                A tradição gaúcha ganha novos passos na invernada juvenil.
-              </h1>
-
-              <p class="mt-6 text-lg text-black/60 leading-relaxed max-w-xl">
-                O CTG Rancho da Saudade forma jovens talentos no amor pelo tradicionalismo — com
-                ensaios, amizades e a alegria de dançar no tablado.
-              </p>
-
-              <div class="mt-8 flex flex-wrap gap-4">
-                <a href="#inscricao" class="btn-primary">
-                  <i class="fas fa-pen-to-square"></i>
-                  Quero me inscrever
-                </a>
-                <a href="#historia" class="btn-ghost">
-                  <i class="fas fa-heart"></i>
-                  Conheça nossa história
-                </a>
-              </div>
-
-              <ul class="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-sm text-black/60">
-                <li class="flex items-center gap-2">
-                  <i class="fas fa-trophy text-rancho-green"></i>
-                  4 títulos estaduais
-                </li>
-                <li class="flex items-center gap-2">
-                  <i class="fas fa-user-group text-rancho-green"></i>
-                  Jovens de 14 a 17 anos
-                </li>
-                <li class="flex items-center gap-2">
-                  <i class="fas fa-location-dot text-rancho-red"></i>
-                  Ritter, 2626 — Cachoeirinha/RS
-                </li>
-              </ul>
-            </div>
-
-            <div class="relative flex justify-center lg:justify-end">
-              <div
-                class="absolute inset-0 m-auto w-72 h-72 rounded-full bg-rancho-red/10 blur-3xl"
-                aria-hidden="true"
-              ></div>
-              <canvas
-                id="hero-canvas"
-                class="relative w-full max-w-[420px] aspect-square [filter:drop-shadow(0_28px_36px_rgba(214,40,40,0.22))]"
-                aria-label="Logotipo do CTG Rancho da Saudade em 3D"
-                role="img"
-              ></canvas>
-            </div>
-          </div>
+      <section class="section intro reveal" id="essencia">
+        <div>
+          <p class="section-label"><span>01 /</span> Nossa essência</p>
+          <h2>Raiz que abraça.<br />Cultura que <em>pulsa.</em></h2>
+        </div>
+        <div class="intro-copy">
+          <p>
+            Um lugar para chegar e se sentir parte. Onde cada ensaio, cada dança e cada encontro dão
+            um novo capítulo à nossa história.
+          </p>
+          <p>
+            Na invernada juvenil do CTG Rancho da Saudade, cultivamos o amor pela tradição e as
+            amizades que levamos para a vida.
+          </p>
+          <p class="signature">A casa é sua. A história é nossa.</p>
         </div>
       </section>
-
-      <!-- ══════════ História ══════════ -->
-      <section id="historia" class="py-20 bg-rancho-cream">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="grid lg:grid-cols-2 gap-14 items-start">
-            <div data-aos="fade-right">
-              <p class="text-xs font-bold uppercase tracking-widest text-rancho-red mb-3">
-                Nossa trajetória
-              </p>
-              <h2 class="font-display font-bold text-3xl sm:text-4xl leading-tight">
-                Uma família que vai além dos tablados.
-              </h2>
-              <p class="mt-6 text-black/60 leading-relaxed">
-                O CTG Rancho da Saudade é referência estadual. A invernada juvenil surgiu com o
-                propósito de formar jovens talentos, promovendo o amor pelo tradicionalismo desde
-                cedo.
-              </p>
-              <p class="mt-4 text-black/60 leading-relaxed">
-                Com ensaios regulares e vivências culturais intensas, construímos uma comunidade que
-                acolhe quem chega e acompanha quem vai longe.
-              </p>
-
-              <div class="mt-8 flex flex-wrap gap-4">
-                <span
-                  class="inline-flex items-center gap-2 bg-white px-5 py-3 rounded-xl shadow-card font-semibold text-sm"
-                >
-                  <i class="fas fa-people-group text-rancho-red"></i>
-                  Ensaios semanais
-                </span>
-                <span
-                  class="inline-flex items-center gap-2 bg-white px-5 py-3 rounded-xl shadow-card font-semibold text-sm"
-                >
-                  <i class="fas fa-music text-rancho-green"></i>
-                  Vida cultural intensa
-                </span>
-              </div>
-            </div>
-
-            <div class="card overflow-hidden" data-aos="fade-left">
-              <div class="bg-rancho-red px-6 py-5 flex items-center gap-3">
-                <span class="w-10 h-10 grid place-items-center rounded-full bg-white/15">
-                  <i class="fas fa-trophy text-white"></i>
-                </span>
-                <h3 class="font-display font-bold text-white text-lg">Principais conquistas</h3>
-              </div>
-
-              <table class="w-full text-left">
-                <thead>
-                  <tr class="bg-rancho-cream text-xs uppercase tracking-wider text-black/50">
-                    <th class="px-6 py-3">Ano</th>
-                    <th class="px-6 py-3">Conquista</th>
-                    <th class="hidden sm:table-cell px-6 py-3">Temática</th>
-                  </tr>
-                </thead>
-                <tbody class="divide-y divide-black/5">
-                  <tr class="hover:bg-rancho-red/5 transition-colors">
-                    <td class="px-6 py-4 font-display font-bold text-rancho-red">2017</td>
-                    <td class="px-6 py-4 font-medium">Vitória no JuvEnart</td>
-                    <td class="hidden sm:table-cell px-6 py-4 text-black/50 text-sm">
-                      Vida que brota da terra
-                    </td>
-                  </tr>
-                  <tr class="hover:bg-rancho-red/5 transition-colors">
-                    <td class="px-6 py-4 font-display font-bold text-rancho-red">2019</td>
-                    <td class="px-6 py-4 font-medium">Bicampeões Estaduais</td>
-                    <td class="hidden sm:table-cell px-6 py-4 text-black/50 text-sm">
-                      As cavalhadas
-                    </td>
-                  </tr>
-                  <tr class="hover:bg-rancho-green/5 transition-colors">
-                    <td class="px-6 py-4 font-display font-bold text-rancho-green">2023</td>
-                    <td class="px-6 py-4 font-medium">Tricampeões Estaduais</td>
-                    <td class="hidden sm:table-cell px-6 py-4 text-black/50 text-sm">
-                      Homenagem Os Serranos
-                    </td>
-                  </tr>
-                  <tr class="hover:bg-rancho-green/5 transition-colors">
-                    <td class="px-6 py-4 font-display font-bold text-rancho-green">2024</td>
-                    <td class="px-6 py-4 font-medium">Bicampeonato Consecutivo</td>
-                    <td class="hidden sm:table-cell px-6 py-4 text-black/50 text-sm">
-                      Tributo ao filme “Para Pedro”
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+      <section class="section activities" id="vivencias">
+        <div class="section-head reveal">
+          <div>
+            <p class="section-label"><span>02 /</span> Nossas vivências</p>
+            <h2>Encontre o seu <em>compasso.</em></h2>
           </div>
+          <p>Diferentes formas de viver a mesma paixão. Escolha por onde começar.</p>
         </div>
-      </section>
-
-      <!-- ══════════ Galeria ══════════ -->
-      <section id="galeria" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="text-center max-w-2xl mx-auto mb-12" data-aos="fade-up">
-            <p class="text-xs font-bold uppercase tracking-widest text-rancho-red mb-3">Galeria</p>
-            <h2 class="font-display font-bold text-3xl sm:text-4xl">Momentos eternizados</h2>
-            <div class="w-20 h-1 bg-rancho-green mx-auto mt-5 rounded-full"></div>
+        <div class="experience reveal">
+          <div class="experience-image">
+            <img src="Img/foto1.jpg" alt="Apresentação da invernada no palco" loading="lazy" /><span
+              >TRADIÇÃO EM MOVIMENTO <span>↗</span></span
+            >
           </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <figure
-              class="tilt group relative h-64 sm:h-72 rounded-2xl overflow-hidden shadow-card cursor-pointer"
-              data-aos="fade-up"
-              data-aos-delay="100"
-            >
-              <img
-                src="Img/foto1.jpg"
-                alt="Apresentação oficial da invernada no palco"
-                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                loading="lazy"
-              />
-              <figcaption
-                class="absolute inset-0 bg-gradient-to-t from-rancho-red/85 via-rancho-red/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6"
+          <div class="experience-text">
+            <div class="tabs" role="tablist" aria-label="Vivências">
+              <button
+                id="tab-danca"
+                type="button"
+                role="tab"
+                aria-selected="true"
+                aria-controls="experience-panel"
+                data-tab="0"
               >
-                <i class="fas fa-magnifying-glass-plus text-white/80 mb-2"></i>
-                <span class="font-display font-bold text-white text-lg">Apresentação Oficial</span>
-                <span class="text-xs uppercase tracking-widest text-white/70">Pré-estreia</span>
-              </figcaption>
-            </figure>
-
-            <figure
-              class="tilt group relative h-64 sm:h-72 sm:col-span-2 rounded-2xl overflow-hidden shadow-card cursor-pointer"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
-              <img
-                src="Img/3 titulo.jpeg"
-                alt="Grupo comemorando o terceiro título estadual"
-                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                loading="lazy"
-              />
-              <figcaption
-                class="absolute inset-0 bg-gradient-to-t from-rancho-green/85 via-rancho-green/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6"
+                Dança</button
+              ><button
+                id="tab-cultura"
+                type="button"
+                role="tab"
+                aria-selected="false"
+                aria-controls="experience-panel"
+                tabindex="-1"
+                data-tab="1"
               >
-                <i class="fas fa-magnifying-glass-plus text-white/80 mb-2"></i>
-                <span class="font-display font-bold text-white text-lg">
-                  Comemoração do terceiro título
-                </span>
-                <span class="text-xs uppercase tracking-widest text-white/70">Grupo 23–24</span>
-              </figcaption>
-            </figure>
-
-            <figure
-              class="tilt group relative h-64 sm:h-72 rounded-2xl overflow-hidden shadow-card cursor-pointer"
-              data-aos="fade-up"
-              data-aos-delay="300"
-            >
-              <img
-                src="Img/foto4.jpg"
-                alt="Prendas dançando em traje típico gaúcho"
-                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                loading="lazy"
-              />
-              <figcaption
-                class="absolute inset-0 bg-gradient-to-t from-rancho-red/85 via-rancho-red/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6"
+                Cultura</button
+              ><button
+                id="tab-convivencia"
+                type="button"
+                role="tab"
+                aria-selected="false"
+                aria-controls="experience-panel"
+                tabindex="-1"
+                data-tab="2"
               >
-                <i class="fas fa-magnifying-glass-plus text-white/80 mb-2"></i>
-                <span class="font-display font-bold text-white text-lg">Prendas</span>
-              </figcaption>
-            </figure>
-
-            <figure
-              class="tilt group relative h-64 sm:h-72 rounded-2xl overflow-hidden shadow-card cursor-pointer"
-              data-aos="fade-up"
-              data-aos-delay="400"
-            >
-              <img
-                src="Img/foto5.jpg"
-                alt="Entrevista com integrantes da invernada"
-                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                loading="lazy"
-              />
-              <figcaption
-                class="absolute inset-0 bg-gradient-to-t from-rancho-green/85 via-rancho-green/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6"
-              >
-                <i class="fas fa-magnifying-glass-plus text-white/80 mb-2"></i>
-                <span class="font-display font-bold text-white text-lg">Entrevista</span>
-              </figcaption>
-            </figure>
-
-            <figure
-              class="tilt group relative h-64 sm:h-72 rounded-2xl overflow-hidden shadow-card cursor-pointer"
-              data-aos="fade-up"
-              data-aos-delay="500"
-            >
-              <img
-                src="Img/foto6.jpg"
-                alt="Momento do sorteio durante o evento"
-                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                loading="lazy"
-              />
-              <figcaption
-                class="absolute inset-0 bg-gradient-to-t from-rancho-red/85 via-rancho-red/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6"
-              >
-                <i class="fas fa-magnifying-glass-plus text-white/80 mb-2"></i>
-                <span class="font-display font-bold text-white text-lg">Sorteio</span>
-              </figcaption>
-            </figure>
-          </div>
-        </div>
-      </section>
-
-      <!-- ══════════ Depoimentos ══════════ -->
-      <section class="py-20 bg-rancho-cream">
-        <div class="max-w-6xl mx-auto px-4">
-          <div class="text-center mb-12" data-aos="fade-up">
-            <p class="text-xs font-bold uppercase tracking-widest text-rancho-green mb-3">
-              Depoimentos
-            </p>
-            <h2 class="font-display font-bold text-3xl sm:text-4xl">O que dizem sobre nós</h2>
-          </div>
-
-          <div class="grid md:grid-cols-2 gap-8">
-            <blockquote class="card p-8 relative" data-aos="fade-right">
-              <i class="fas fa-quote-right absolute top-6 right-8 text-4xl text-rancho-red/15"></i>
-              <p class="text-lg leading-relaxed text-black/70 italic mb-6">
-                “Participar da invernada mudou minha vida. Aprendi sobre cultura, respeito e fiz
-                amizades para sempre.”
-              </p>
-              <footer class="flex items-center gap-4">
-                <span
-                  class="w-12 h-12 rounded-full bg-rancho-red text-white font-display font-bold grid place-items-center shadow-red"
-                >
-                  G
-                </span>
-                <div>
-                  <cite class="not-italic font-semibold block">Giovana Rodrigues</cite>
-                  <span class="text-sm text-black/50">Ex-integrante (2022–2025)</span>
-                </div>
-              </footer>
-            </blockquote>
-
-            <blockquote class="card p-8 relative" data-aos="fade-left">
-              <i
-                class="fas fa-quote-right absolute top-6 right-8 text-4xl text-rancho-green/15"
-              ></i>
-              <p class="text-lg leading-relaxed text-black/70 italic mb-6">
-                “É emocionante ver nossos filhos no palco. O CTG Rancho da Saudade é uma segunda
-                família.”
-              </p>
-              <footer class="flex items-center gap-4">
-                <span
-                  class="w-12 h-12 rounded-full bg-rancho-green text-white font-display font-bold grid place-items-center shadow-green"
-                >
-                  A
-                </span>
-                <div>
-                  <cite class="not-italic font-semibold block">Aline Anselmo</cite>
-                  <span class="text-sm text-black/50">Mãe de integrante</span>
-                </div>
-              </footer>
-            </blockquote>
-          </div>
-        </div>
-      </section>
-
-      <!-- ══════════ Inscrição ══════════ -->
-      <section id="inscricao" class="py-20 bg-white">
-        <div class="max-w-4xl mx-auto px-4">
-          <div
-            class="card p-8 md:p-12 !shadow-red border border-rancho-red/10"
-            data-aos="zoom-in-up"
-          >
-            <div class="text-center mb-10">
-              <span
-                class="inline-grid place-items-center w-14 h-14 rounded-full bg-rancho-green/10 text-rancho-green text-2xl mb-5"
-              >
-                <i class="fas fa-pen-to-square"></i>
-              </span>
-              <h2 class="font-display font-bold text-3xl text-balance">Faça parte da invernada</h2>
-              <p class="text-black/50 mt-3">Preencha o formulário e entraremos em contato.</p>
-            </div>
-
-            <form class="form-inscricao space-y-6" action="#" method="POST">
-              <div class="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label for="nome" class="block text-sm font-semibold mb-1.5">
-                    <i class="fas fa-user text-rancho-red mr-1.5"></i>
-                    Nome completo
-                  </label>
-                  <input
-                    type="text"
-                    id="nome"
-                    name="nome"
-                    required
-                    autocomplete="name"
-                    class="w-full px-4 py-3 rounded-xl border border-black/10 bg-rancho-cream/60 focus:bg-white focus:border-rancho-green focus:ring-4 focus:ring-rancho-green/15 outline-none transition-all"
-                  />
-                </div>
-                <div>
-                  <label for="idade" class="block text-sm font-semibold mb-1.5">
-                    <i class="fas fa-cake-candles text-rancho-red mr-1.5"></i>
-                    Idade (14–17)
-                  </label>
-                  <input
-                    type="number"
-                    id="idade"
-                    name="idade"
-                    min="14"
-                    max="17"
-                    required
-                    class="w-full px-4 py-3 rounded-xl border border-black/10 bg-rancho-cream/60 focus:bg-white focus:border-rancho-green focus:ring-4 focus:ring-rancho-green/15 outline-none transition-all"
-                  />
-                </div>
-              </div>
-
-              <div class="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label for="telefone" class="block text-sm font-semibold mb-1.5">
-                    <i class="fab fa-whatsapp text-rancho-green mr-1.5"></i>
-                    WhatsApp
-                  </label>
-                  <input
-                    type="tel"
-                    id="telefone"
-                    name="telefone"
-                    required
-                    autocomplete="tel"
-                    placeholder="(51) 99999-9999"
-                    class="w-full px-4 py-3 rounded-xl border border-black/10 bg-rancho-cream/60 focus:bg-white focus:border-rancho-green focus:ring-4 focus:ring-rancho-green/15 outline-none transition-all"
-                  />
-                </div>
-                <div>
-                  <label for="email" class="block text-sm font-semibold mb-1.5">
-                    <i class="fas fa-envelope text-rancho-red mr-1.5"></i>
-                    E-mail
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    autocomplete="email"
-                    class="w-full px-4 py-3 rounded-xl border border-black/10 bg-rancho-cream/60 focus:bg-white focus:border-rancho-green focus:ring-4 focus:ring-rancho-green/15 outline-none transition-all"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label for="mensagem" class="block text-sm font-semibold mb-1.5">
-                  <i class="fas fa-star text-rancho-green mr-1.5"></i>
-                  Experiência anterior?
-                </label>
-                <textarea
-                  id="mensagem"
-                  name="mensagem"
-                  rows="3"
-                  placeholder="Conte-nos se já dançou antes..."
-                  class="w-full px-4 py-3 rounded-xl border border-black/10 bg-rancho-cream/60 focus:bg-white focus:border-rancho-green focus:ring-4 focus:ring-rancho-green/15 outline-none transition-all resize-y"
-                ></textarea>
-              </div>
-
-              <button type="submit" class="btn-primary w-full justify-center py-4 text-base">
-                <i class="fas fa-paper-plane"></i>
-                Enviar inscrição
+                Convivência
               </button>
-            </form>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <!-- ══════════ Rodapé ══════════ -->
-    <footer class="bg-rancho-ink text-white pt-16 pb-8">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid md:grid-cols-3 gap-12 mb-12 text-center md:text-left">
-          <div>
-            <h4 class="font-display font-bold text-xl mb-4">
-              <span class="text-rancho-red">CTG</span>
-              <span class="text-rancho-green">Rancho da Saudade</span>
-            </h4>
-            <p class="text-white/50 text-sm leading-relaxed">
-              Cultuando a tradição e formando cidadãos através da arte e da cultura gaúcha.
-            </p>
-          </div>
-
-          <div>
-            <h4 class="font-semibold mb-4">Contato</h4>
-            <ul class="space-y-3 text-sm text-white/60">
-              <li class="flex items-center justify-center md:justify-start gap-3">
-                <i class="fas fa-map-marker-alt text-rancho-red"></i>
-                Ritter, 2626 — Cachoeirinha, RS
-              </li>
-              <li class="flex items-center justify-center md:justify-start gap-3">
-                <i class="fas fa-envelope text-rancho-green"></i>
-                contato@ctgrancho.com
-              </li>
-              <li class="flex items-center justify-center md:justify-start gap-3">
-                <i class="fab fa-whatsapp text-rancho-red"></i>
-                (51) 98422-3779
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 class="font-semibold mb-4">Siga-nos</h4>
-            <div class="flex justify-center md:justify-start gap-3">
-              <a
-                href="#"
-                aria-label="Facebook"
-                class="w-11 h-11 rounded-full bg-white/10 grid place-items-center hover:bg-rancho-red hover:shadow-red transition-all hover:-translate-y-1"
-              >
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a
-                href="#"
-                aria-label="Instagram"
-                class="w-11 h-11 rounded-full bg-white/10 grid place-items-center hover:bg-rancho-green hover:shadow-green transition-all hover:-translate-y-1"
-              >
-                <i class="fab fa-instagram"></i>
-              </a>
-              <a
-                href="https://wa.me/5551984223779"
-                aria-label="WhatsApp"
-                class="w-11 h-11 rounded-full bg-white/10 grid place-items-center hover:bg-rancho-green hover:shadow-green transition-all hover:-translate-y-1"
-              >
-                <i class="fab fa-whatsapp"></i>
-              </a>
+            </div>
+            <div id="experience-panel" role="tabpanel" aria-labelledby="tab-danca" tabindex="0">
+              <span class="tab-num" id="tab-number">01 — ARTE EM MOVIMENTO</span>
+              <h3 id="tab-title">O primeiro passo é se permitir.</h3>
+              <p id="tab-copy">
+                A força do sapateado, o movimento da saia e a sintonia de dançar junto. Há sempre um
+                novo passo para aprender.
+              </p>
+              <a class="detail-link" href="#inscricao">Venha conhecer a invernada <span>↗</span></a>
             </div>
           </div>
         </div>
-
-        <div class="border-t border-white/10 pt-8 text-center">
-          <p class="text-white/40 text-sm">
-            © <span id="year">2025</span> CTG Rancho da Saudade. Todos os direitos reservados.
+      </section>
+      <section class="section history" id="historia">
+        <div class="section-head reveal">
+          <div>
+            <p class="section-label"><span>03 /</span> Nossa trajetória</p>
+            <h2>Uma história feita<br />de <em>encontros.</em></h2>
+          </div>
+          <p>
+            Uma família que vai além dos tablados, formando jovens no amor pelo tradicionalismo.
           </p>
         </div>
+        <div class="history-grid">
+          <div>
+            <p>
+              Com ensaios regulares e vivências culturais intensas, construímos uma comunidade que
+              acolhe quem chega e acompanha quem vai longe.
+            </p>
+            <p>
+              São quatro conquistas estaduais que celebram o trabalho e a dedicação de diferentes
+              gerações.
+            </p>
+          </div>
+          <div class="achievement-list">
+            <div>
+              <strong>2017</strong
+              ><span>Vitória no JuvEnart<small>Vida que brota da terra</small></span>
+            </div>
+            <div>
+              <strong>2019</strong><span>Bicampeões estaduais<small>As cavalhadas</small></span>
+            </div>
+            <div>
+              <strong>2023</strong
+              ><span>Tricampeões estaduais<small>Homenagem aos Serranos</small></span>
+            </div>
+            <div>
+              <strong>2024</strong
+              ><span>Bicampeonato consecutivo<small>Tributo ao filme “Para Pedro”</small></span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section gallery" id="galeria">
+        <div class="section-head reveal">
+          <div>
+            <p class="section-label"><span>04 /</span> Nossa galeria</p>
+            <h2>Momentos que ficam<br />na <em>memória.</em></h2>
+          </div>
+          <p>Um pouco das histórias que vivemos juntos.</p>
+        </div>
+        <div class="gallery-grid">
+          <figure>
+            <img
+              src="Img/foto1.jpg"
+              alt="Apresentação oficial da invernada no palco"
+              loading="lazy"
+            />
+            <figcaption>Apresentação oficial</figcaption>
+          </figure>
+          <figure>
+            <img
+              src="Img/3 titulo.jpeg"
+              alt="Grupo comemorando o terceiro título estadual"
+              loading="lazy"
+            />
+            <figcaption>Comemoração do terceiro título</figcaption>
+          </figure>
+          <figure>
+            <img src="Img/foto4.jpg" alt="Prendas dançando em traje típico gaúcho" loading="lazy" />
+            <figcaption>Prendas</figcaption>
+          </figure>
+          <figure>
+            <img src="Img/foto5.jpg" alt="Entrevista com integrantes da invernada" loading="lazy" />
+            <figcaption>Encontros</figcaption>
+          </figure>
+          <figure>
+            <img src="Img/foto6.jpg" alt="Momento durante evento da invernada" loading="lazy" />
+            <figcaption>Momentos juntos</figcaption>
+          </figure>
+        </div>
+      </section>
+      <section class="section testimonials">
+        <div class="section-head">
+          <div>
+            <p class="section-label"><span>05 /</span> Nossa gente</p>
+            <h2>Histórias de quem<br /><em>faz parte.</em></h2>
+          </div>
+        </div>
+        <div class="quotes">
+          <blockquote>
+            <p>
+              “Participar da invernada mudou minha vida. Aprendi sobre cultura, respeito e fiz
+              amizades para sempre.”
+            </p>
+            <footer>
+              <strong>Giovana Rodrigues</strong><span>Ex-integrante (2022–2025)</span>
+            </footer>
+          </blockquote>
+          <blockquote>
+            <p>
+              “É emocionante ver nossos filhos no palco. O CTG Rancho da Saudade é uma segunda
+              família.”
+            </p>
+            <footer><strong>Aline Anselmo</strong><span>Mãe de integrante</span></footer>
+          </blockquote>
+        </div>
+      </section>
+      <section class="section agenda" id="agenda">
+        <div class="agenda-inner">
+          <div class="section-head">
+            <div>
+              <p class="section-label"><span>06 /</span> Bons encontros</p>
+              <h2>Marque na <em>memória.</em></h2>
+            </div>
+            <p>A próxima boa lembrança começa com um encontro.</p>
+          </div>
+          <p class="agenda-empty">Em breve, novidades sobre a programação da invernada.</p>
+          <a class="agenda-contact" href="https://wa.me/5551984223779"
+            >Fale conosco para saber mais <span>↗</span></a
+          >
+        </div>
+      </section>
+      <section class="section signup" id="inscricao">
+        <div>
+          <p class="section-label"><span>07 /</span> Venha fazer parte</p>
+          <h2>Seu próximo passo<br />começa <em>aqui.</em></h2>
+          <p>
+            Tem entre 14 e 17 anos? Conte um pouco sobre você e envie sua mensagem para a
+            coordenação pelo WhatsApp.
+          </p>
+        </div>
+        <form class="form-inscricao">
+          <div class="form-grid">
+            <label
+              >Nome completo<input type="text" name="nome" autocomplete="name" required /></label
+            ><label
+              >Idade (14–17)<input type="number" name="idade" min="14" max="17" required /></label
+            ><label
+              >WhatsApp<input
+                type="tel"
+                name="telefone"
+                autocomplete="tel"
+                required
+                placeholder="(51) 99999-9999" /></label
+            ><label>E-mail<input type="email" name="email" autocomplete="email" required /></label>
+          </div>
+          <label
+            >Experiência anterior?
+            <textarea
+              name="mensagem"
+              rows="3"
+              placeholder="Conte-nos se já dançou antes..."
+            ></textarea></label
+          ><button class="button green" type="submit">Continuar no WhatsApp <span>↗</span></button>
+          <p class="form-note">Sua inscrição será enviada ao confirmar a mensagem no WhatsApp.</p>
+        </form>
+      </section>
+      <section class="invitation">
+        <p class="section-label">Mais que um lugar. Um sentimento.</p>
+        <h2>Tem lugar pra você<br />nessa <em>história.</em></h2>
+        <p>Pra dançar, aprender e estar junto.</p>
+        <a class="button green" href="#inscricao">Encontre seu lugar <span>↗</span></a>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <a class="footer-brand" href="#inicio">Rancho da Saudade</a>
+      <div class="footer-links">
+        <a href="#essencia">O CTG</a><a href="#vivencias">Vivências</a><a href="#galeria">Galeria</a
+        ><a href="#inscricao">Inscrição</a>
       </div>
+      <p>
+        Ritter, 2626 — Cachoeirinha, RS<br /><a href="https://wa.me/5551984223779"
+          >(51) 98422-3779 ↗</a
+        ><br />© <span id="year"></span> CTG Rancho da Saudade
+      </p>
     </footer>
   </body>
 </html>

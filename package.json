@@ -24,7 +24,6 @@
   },
   "homepage": "https://github.com/Mankeya/Site_Juvenil_Rancho#readme",
   "dependencies": {
-    "aos": "^2.3.4",
     "three": "^0.187.0"
   },
   "devDependencies": {

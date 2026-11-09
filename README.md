@@ -10,10 +10,10 @@ Rancho, fortalecer a presença online do grupo e valorizar a cultura gaúcha.
 
 ## 🧩 Conteúdo do site
 
-- Página inicial com destaque para o grupo e cena 3D animada
+- Página inicial com destaque para o grupo, vídeo de fundo e cena 3D animada
 - Seções sobre a história e as conquistas do CTG
-- Galeria de fotos com interação 3D
-- Formulário de inscrição
+- Galeria de fotos, vivências e depoimentos
+- Formulário de inscrição com envio pelo WhatsApp
 - Layout responsivo (celular e desktop)
 
 ## 🔧 Tecnologias
@@ -22,8 +22,10 @@ Rancho, fortalecer a presença online do grupo e valorizar a cultura gaúcha.
 - **Tailwind CSS v4** — estilização (build local, sem CDN)
 - **Vite** — dev server e build de produção
 - **Three.js** — cena 3D do hero (carregada sob demanda)
-- **AOS** — animações de scroll
-- **JavaScript** — interações (menu, formulário, tilt 3D)
+- **JavaScript** — interações, animações de scroll e formulário
+
+O vídeo do início fica em `assets/video/Juvenil - Trim.mp4` e é incluído no build.
+Enquanto o vídeo não estiver disponível, a página exibe uma foto da invernada.
 
 ## 🛠️ Desenvolvimento
 
