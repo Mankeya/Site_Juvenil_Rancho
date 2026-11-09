@@ -1,76 +1,97 @@
 import * as THREE from 'three'
+import logoUrl from '../Img/logo-3d.png'
+
+function roundedRectShape(w, h, radius) {
+  const x = -w / 2
+  const y = -h / 2
+  const s = new THREE.Shape()
+  s.moveTo(x + radius, y)
+  s.lineTo(x + w - radius, y)
+  s.quadraticCurveTo(x + w, y, x + w, y + radius)
+  s.lineTo(x + w, y + h - radius)
+  s.quadraticCurveTo(x + w, y + h, x + w - radius, y + h)
+  s.lineTo(x + radius, y + h)
+  s.quadraticCurveTo(x, y + h, x, y + h - radius)
+  s.lineTo(x, y + radius)
+  s.quadraticCurveTo(x, y, x + radius, y)
+  return s
+}
 
 /**
- * Estrela 3D do hero — geometria extrudada com as cores da marca.
- * Respeita prefers-reduced-motion (renderiza estático).
+ * Distintivo 3D do hero: logo do CTG sobre um card com borda vermelha,
+ * flutuando com parallax no ponteiro. Respeita prefers-reduced-motion.
  */
 export function initHero3D(canvas) {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
+  let renderer
+  try {
+    renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true })
+  } catch {
+    return // sem WebGL: a página funciona normalmente sem a cena
+  }
+
   const scene = new THREE.Scene()
   const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100)
-  camera.position.z = 6
+  camera.position.z = 6.5
 
-  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true })
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+  renderer.outputColorSpace = THREE.SRGBColorSpace
 
-  // Iluminação suave
-  scene.add(new THREE.AmbientLight(0xffffff, 1.2))
-  const key = new THREE.DirectionalLight(0xffffff, 2)
-  key.position.set(4, 6, 8)
+  scene.add(new THREE.AmbientLight(0xffffff, 2))
+  const key = new THREE.DirectionalLight(0xffffff, 1.4)
+  key.position.set(3, 5, 6)
   scene.add(key)
-  const rim = new THREE.DirectionalLight(0x009739, 1.5)
-  rim.position.set(-6, -2, 4)
-  scene.add(rim)
 
-  // Geometria: estrela de 5 pontas (evoca a bandeira gaúcha)
-  const shape = new THREE.Shape()
-  const spikes = 5
-  const outer = 2
-  const inner = 0.85
-  for (let i = 0; i < spikes * 2; i++) {
-    const r = i % 2 === 0 ? outer : inner
-    const angle = (Math.PI / spikes) * i - Math.PI / 2
-    const x = Math.cos(angle) * r
-    const y = Math.sin(angle) * r
-    i === 0 ? shape.moveTo(x, y) : shape.lineTo(x, y)
-  }
-  shape.closePath()
+  // ── Distintivo ────────────────────────────────────────────────
+  const group = new THREE.Group()
+  scene.add(group)
 
-  const geometry = new THREE.ExtrudeGeometry(shape, {
-    depth: 0.55,
-    bevelEnabled: true,
-    bevelThickness: 0.12,
-    bevelSize: 0.1,
-    bevelSegments: 3,
-  })
-  geometry.center()
+  const W = 3.1
+  const H = (W * 644) / 544
+  const R = 0.28
 
-  const material = new THREE.MeshStandardMaterial({
-    color: 0xd62828,
-    metalness: 0.35,
-    roughness: 0.3,
-  })
-  const star = new THREE.Mesh(geometry, material)
-  star.rotation.x = 0.35
-  scene.add(star)
-
-  // Anel verde orbitando (acento secundário)
-  const ring = new THREE.Mesh(
-    new THREE.TorusGeometry(3, 0.045, 16, 96),
-    new THREE.MeshStandardMaterial({ color: 0x009739, metalness: 0.5, roughness: 0.35 }),
+  // Borda vermelha (card levemente maior atrás)
+  const border = new THREE.Mesh(
+    new THREE.ShapeGeometry(roundedRectShape(W + 0.2, H + 0.2, R + 0.06)),
+    new THREE.MeshBasicMaterial({ color: 0xd62828 }),
   )
-  ring.rotation.x = Math.PI / 2.4
-  scene.add(ring)
+  group.add(border)
 
-  // Controle por ponteiro (parallax sutil)
-  const target = { x: 0, y: 0 }
-  const onPointerMove = (e) => {
-    const rect = canvas.getBoundingClientRect()
-    target.x = ((e.clientX - rect.left) / rect.width - 0.5) * 0.6
-    target.y = ((e.clientY - rect.top) / rect.height - 0.5) * 0.6
+  // Cartão branco
+  const card = new THREE.Mesh(
+    new THREE.ShapeGeometry(roundedRectShape(W, H, R)),
+    new THREE.MeshBasicMaterial({ color: 0xffffff }),
+  )
+  card.position.z = 0.02
+  group.add(card)
+
+  // Logo (textura com fundo transparente)
+  const texture = new THREE.TextureLoader().load(logoUrl, (t) => {
+    t.colorSpace = THREE.SRGBColorSpace
+    t.anisotropy = renderer.capabilities.getMaxAnisotropy()
+  })
+  const logo = new THREE.Mesh(
+    new THREE.PlaneGeometry(W * 0.92, H * 0.92),
+    new THREE.MeshBasicMaterial({ map: texture, transparent: true }),
+  )
+  logo.position.z = 0.04
+  group.add(logo)
+
+  // ── Interação ─────────────────────────────────────────────────
+  const pointer = { x: 0, y: 0 }
+  const current = { x: 0, y: 0 }
+  if (!reduceMotion) {
+    canvas.addEventListener('pointermove', (e) => {
+      const rect = canvas.getBoundingClientRect()
+      pointer.x = ((e.clientX - rect.left) / rect.width - 0.5) * 0.5
+      pointer.y = ((e.clientY - rect.top) / rect.height - 0.5) * 0.35
+    })
+    canvas.addEventListener('pointerleave', () => {
+      pointer.x = 0
+      pointer.y = 0
+    })
   }
-  if (!reduceMotion) canvas.addEventListener('pointermove', onPointerMove)
 
   function resize() {
     const size = canvas.clientWidth
@@ -81,14 +102,18 @@ export function initHero3D(canvas) {
   resize()
   window.addEventListener('resize', resize)
 
-  let raf
+  // ── Animação ──────────────────────────────────────────────────
+  let raf = 0
+  let t = 0
   function animate() {
     raf = requestAnimationFrame(animate)
     if (!reduceMotion) {
-      star.rotation.y += 0.006
-      ring.rotation.z += 0.003
-      star.rotation.x += (0.35 + target.y - star.rotation.x) * 0.05
-      star.rotation.z += (target.x - star.rotation.z) * 0.05
+      t += 0.016
+      current.x += (pointer.x - current.x) * 0.06
+      current.y += (pointer.y - current.y) * 0.06
+      group.position.y = Math.sin(t * 1.1) * 0.14 // flutuação suave
+      group.rotation.y = Math.sin(t * 0.7) * 0.16 + current.x
+      group.rotation.x = Math.sin(t * 0.9) * 0.05 + current.y
     }
     renderer.render(scene, camera)
   }

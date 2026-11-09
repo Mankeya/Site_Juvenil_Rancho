@@ -139,6 +139,53 @@
         ></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <!-- Faixa de fotos com low-fade e degradê -->
+          <div class="relative mb-10 md:mb-14 h-36 sm:h-44 md:h-52" aria-hidden="true">
+            <div
+              class="grid grid-cols-3 md:grid-cols-5 gap-2 sm:gap-3 h-full"
+              style="
+                mask-image: linear-gradient(to bottom, black 40%, transparent);
+                -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent);
+              "
+            >
+              <img
+                src="Img/foto3.jpg"
+                alt=""
+                class="w-full h-full object-cover rounded-lg sm:rounded-xl opacity-45"
+              />
+              <img
+                src="Img/foto1.jpg"
+                alt=""
+                class="w-full h-full object-cover rounded-lg sm:rounded-xl opacity-45"
+              />
+              <img
+                src="Img/3 titulo.jpeg"
+                alt=""
+                class="w-full h-full object-cover rounded-lg sm:rounded-xl opacity-45"
+              />
+              <img
+                src="Img/foto7.jpg"
+                alt=""
+                class="hidden md:block w-full h-full object-cover rounded-xl opacity-45"
+              />
+              <img
+                src="Img/foto4.jpg"
+                alt=""
+                class="hidden md:block w-full h-full object-cover rounded-xl opacity-45"
+              />
+            </div>
+            <!-- Degradês que derretem as bordas no branco -->
+            <div
+              class="absolute inset-y-0 left-0 w-16 sm:w-24 bg-gradient-to-r from-white to-transparent"
+            ></div>
+            <div
+              class="absolute inset-y-0 right-0 w-16 sm:w-24 bg-gradient-to-l from-white to-transparent"
+            ></div>
+            <div
+              class="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-white via-white/70 to-transparent"
+            ></div>
+          </div>
+
           <div class="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <p
@@ -193,8 +240,8 @@
               ></div>
               <canvas
                 id="hero-canvas"
-                class="relative w-full max-w-[420px] aspect-square"
-                aria-label="Estrela tridimensional animada nas cores do CTG"
+                class="relative w-full max-w-[420px] aspect-square [filter:drop-shadow(0_28px_36px_rgba(214,40,40,0.22))]"
+                aria-label="Logotipo do CTG Rancho da Saudade em 3D"
                 role="img"
               ></canvas>
             </div>
