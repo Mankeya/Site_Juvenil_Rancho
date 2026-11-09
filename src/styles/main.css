@@ -1,0 +1,121 @@
+@import 'tailwindcss';
+
+/* ── Identidade visual: Branco · Vermelho · Verde ───────────────── */
+@theme {
+  --color-rancho-white: #ffffff;
+  --color-rancho-cream: #f7f9f8;
+  --color-rancho-red: #d62828;
+  --color-rancho-red-dark: #a71d1d;
+  --color-rancho-green: #009739;
+  --color-rancho-green-dark: #00702c;
+  --color-rancho-ink: #1a1a1a;
+
+  --font-display: 'Sora', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  /* Sombras coloridas sobre as cores da marca */
+  --shadow-red: 0 12px 32px -8px rgb(214 40 40 / 0.4);
+  --shadow-green: 0 12px 32px -8px rgb(0 151 57 / 0.35);
+  --shadow-card: 0 4px 24px -6px rgb(26 26 26 / 0.08);
+  --shadow-card-hover: 0 20px 48px -12px rgb(214 40 40 / 0.22);
+}
+
+/* ── Base ────────────────────────────────────────────────────────── */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-rancho-ink);
+    background: var(--color-rancho-white);
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-rancho-green);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* ── Componentes ─────────────────────────────────────────────────── */
+@layer components {
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--color-rancho-red);
+    color: #fff;
+    font-weight: 600;
+    padding: 0.875rem 1.75rem;
+    border-radius: 9999px;
+    box-shadow: var(--shadow-red);
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease,
+      background 0.25s ease;
+  }
+  .btn-primary:hover {
+    background: var(--color-rancho-red-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 20px 40px -8px rgb(214 40 40 / 0.5);
+  }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-rancho-green-dark);
+    font-weight: 600;
+    padding: 0.875rem 1.75rem;
+    border-radius: 9999px;
+    border: 2px solid var(--color-rancho-green);
+    transition:
+      background 0.25s ease,
+      transform 0.25s ease,
+      box-shadow 0.25s ease;
+  }
+  .btn-ghost:hover {
+    background: rgb(0 151 57 / 0.08);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-green);
+  }
+
+  .card {
+    background: #fff;
+    border-radius: 1.25rem;
+    box-shadow: var(--shadow-card);
+    transition:
+      transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  /* Tilt 3D no hover (cards) */
+  .tilt {
+    transform-style: preserve-3d;
+    will-change: transform;
+  }
+}
+
+/* ── Utilitários ─────────────────────────────────────────────────── */
+@utility text-balance {
+  text-wrap: balance;
+}
